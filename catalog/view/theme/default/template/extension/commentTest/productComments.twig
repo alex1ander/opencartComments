@@ -1,0 +1,99 @@
+<div class="block-all-comments">
+    <h2 id="comments">Коментарии</h2>
+	<div class="area-for-comments">
+
+        
+        {# переключатель пагинации #}
+
+        {% if order == 'rating' %}
+            {% set selectedRating = 'selected-filter' %}
+            {% if sort == 'desc' %}
+                {% set sortRating = 'asc' %}
+                {% set sortDate = 'desc' %}
+            {% else %}
+                {% set sortRating = 'desc' %}
+                {% set sortDate = 'desc' %}
+            {% endif %}
+        {% else %}
+            {% set selectedDate = 'selected-filter' %}
+            {% if sort == 'desc' %}
+                {% set sortDate = 'asc' %}
+                {% set sortRating = 'desc' %}
+            {% else %}
+                {% set sortDate = 'desc' %}
+                {% set sortRating = 'desc' %}   
+            {% endif %}
+        {% endif %}
+
+        <div class="filter-comments">
+            <span class="filter-label">Сортировать:</span>
+            <a class="filter-label" href="{{ url }}&order=date&sort={{ sortDate }}#comments" >
+                <div class="{{ selectedDate }} filter-block sort-by-{{ sortDate }}">Дата</div>
+            </a>
+            <a lass="filter-label" href="{{ url }}&order=rating&sort={{ sortRating }}#comments" >
+                <div class="{{ selectedRating }} filter-block sort-by-{{ sortRating }}">Рейтинг</div>
+            </a>
+        </div>
+        {# конец переключателя пагинации #}
+
+
+        {% for comment in comments %}
+            <hr>
+            <div class="current-comment">
+                <div class="comment-text">
+                    <div class="comment-name">{{ comment['name'] }}</div>
+                    <div class="comment-date">{{ comment['date'] }}</div>
+                    <div class="comment-rating">{{ comment['rating'] }}</div>
+                    <div class="comment-commentText">{{ comment['commentText'] }}</div>
+                    <div class="comment-advantages">+{{ comment['advantages'] }}</div>
+                    <div class="comment-disadvantages">-{{ comment['disadvantages'] }}</div>
+                </div>
+                <div class="comment-photo">
+                    {% if comment['photoName'] != 'empty' %}
+                        <img class="comment-photo" src="{{ dir_upload }}{{ comment['photoName']}}" />
+                    {% endif %}
+                </div>
+            </div>    
+        {% endfor %}
+
+        {% if total > 1 %}
+            <div class="comments-pagination">
+            {% for i in 1.. total  %}
+                <a href="{{ url }}&page={{ i }}">{{ i }}</a>
+            {% endfor %}
+            </div>
+        {% endif %}
+	</div>
+</div>
+<style>
+    .sort-by-desc{
+        color:red;
+    }
+    .sort-by-asc{
+        color:blue;
+    }
+    .filter-comments{
+        display:flex;
+        margin-right:20px;
+        
+    }
+    .filter-block{
+        width: 100px;
+    }
+    .filter-label{
+        margin-right:20px;
+    }
+    .selected-filter{
+        background:gray
+    }
+    .current-comment{
+        display:flex;
+    }
+    .comment-text{
+        width:300px;
+    }
+    .comment-photo {
+        height: 100px;
+        width: 150px;
+    }
+</style>

@@ -1,0 +1,58 @@
+<div class="commentBlock">
+	<h2>Оставьте коментарий</h2>
+	<form id="productForm" action="{{ actionForm }}" method="post" enctype="multipart/form-data" >
+	<div class="productRating">
+		<input type="hidden" name="product_id" value="{{ product_id }}">
+
+		<input id="rating_1" type="radio" class="ProductStar" name="rating" value="1" />
+		<input id="rating_2"type="radio" class="ProductStar" name="rating" value="2" />
+		<input id="rating_3" type="radio" class="ProductStar" name="rating" value="3" />
+		<input id="rating_4" type="radio" class="ProductStar" name="rating" value="4" />
+		<input id="rating_5" checked type="radio" class="ProductStar" name="rating" value="5" />
+		
+	</div>
+
+	<div class="productReview">
+		
+		<div class="area-comment">
+			<label for="name">Имя</label>
+			<input id="name" type="text" name="name" required>
+		</div>
+
+		<div class="area-comment">
+			<label for="email">e-mail</label>
+			<input id="email" type="text" name="email" required>
+		</div>
+
+		<div class="area-comment">
+			<label for="review">Отзыв</label>
+			<input id="review" type="text" name="commentText" required>
+		</div>
+
+		<div class="area-comment">
+			<label for="advantages">Преимущества</label>
+			<input id="advantages" type="text" name="advantages" >
+		</div>
+
+		<div class="area-comment">
+			<label for="disadvantages">Недостатки</label>
+			<input id="disadvantages" type="text" name="disadvantages" >
+		</div>
+
+	</div>
+
+	<div class="productFile">
+		<div class="area-for-file">
+			<label for="file">Прикрепить файл</label>
+			<input id="file" type="file" name="file">
+		</div>
+	</div>
+	<button class="send-comment" >Отправить</button>
+</form>
+
+</div>
+<style>
+
+
+
+</style>
