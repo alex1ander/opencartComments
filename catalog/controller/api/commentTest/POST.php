@@ -10,16 +10,3 @@ class ControllerApiCommentTestPost extends Controller {
     }
 
 }
-
-//url http://newsitec/index.php?route=api/CommentTest/Post/post
-
-
-/*
-product_id:44
-name:valera
-rating:5
-email:patch@email
-commentText:patchComment
-advantages: advantages
-disadvantages: disadvantages
-*/
