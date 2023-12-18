@@ -4,10 +4,8 @@
 class ControllerApiCommentTestPost extends Controller {
     public function post() {
 
-        print_r($_POST);
-        print_r($_FILES);
-        // http_response_code(201);
-        // $this->load->controller('extension/commentTest/takeinfo/takeInfo');
+        http_response_code(201);
+        $this->load->controller('extension/commentTest/takeinfo/takeInfo');
 
     }
 
