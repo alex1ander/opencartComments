@@ -18,18 +18,3 @@ class ControllerApiCommentTestPatch extends Controller {
     }
 
 }
-
-
-/*
-http://newsitec/index.php?route=api/CommentTest/patch/patch/$commentID
-{
-    "product_id":43,
-    "name":"valera",
-    "rating":"5",
-    "email":"patch@email",
-    "commentText":"patchComment",
-    "advantages": "advantages",
-    "disadvantages": "disadvantages"
-}
-
-*/
